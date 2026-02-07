@@ -1,0 +1,223 @@
+:root {
+  --bg: #0b0d12;
+  --card: rgba(255, 255, 255, 0.06);
+  --card2: rgba(255, 255, 255, 0.08);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.62);
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 900px at 20% 10%, rgba(120, 120, 255, 0.18), transparent 55%),
+    radial-gradient(900px 700px at 80% 20%, rgba(0, 255, 200, 0.10), transparent 60%),
+    var(--bg);
+  color: var(--text);
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(10, 12, 18, 0.65);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(120, 120, 255, 1), rgba(0, 255, 200, 1));
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+}
+
+.brandText .title {
+  font-weight: 650;
+  letter-spacing: 0.2px;
+}
+
+.brandText .subtitle {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pill {
+  font-size: 12px;
+  color: var(--muted);
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.pill.ok {
+  color: rgba(0, 255, 200, 0.9);
+  border-color: rgba(0, 255, 200, 0.25);
+  background: rgba(0, 255, 200, 0.08);
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.content {
+  width: min(1100px, calc(100% - 32px));
+  margin: 18px auto 26px;
+  display: grid;
+  gap: 14px;
+}
+
+.blurbCard,
+.viewerCard {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.blurbCard {
+  padding: 16px 16px 14px;
+}
+
+.blurb {
+  margin: 0;
+  line-height: 1.55;
+  font-size: 14.5px;
+}
+
+.muted {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.viewerCard {
+  position: relative;
+  overflow: hidden;
+  height: min(72vh, 720px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03));
+}
+
+.viewer {
+  width: 100%;
+  height: 100%;
+}
+
+.loadingOverlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  background: rgba(10, 12, 18, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 3px solid rgba(255, 255, 255, 0.14);
+  border-top-color: rgba(0, 255, 200, 0.85);
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.error {
+  padding: 18px;
+}
+
+.errorTitle {
+  font-weight: 650;
+  margin-bottom: 6px;
+}
+
+.errorMsg {
+  color: rgba(255, 140, 140, 0.95);
+  margin-bottom: 10px;
+}
+
+.errorHint {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.footer {
+  margin-top: auto;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  background: rgba(10, 12, 18, 0.35);
+  backdrop-filter: blur(8px);
+}
