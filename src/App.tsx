@@ -16,8 +16,8 @@ export default function App() {
 
     async function init() {
       try {
-        const spaceId = import.meta.env.VITE_SPACE_ID as string | undefined;
-        const clientToken = import.meta.env.VITE_CLIENT_TOKEN as string | undefined;
+        const spaceId = "spc_sa0p306m";
+        const clientToken = "pub_de0b47833b6343f9b9b0443350f9ad46";
 
         if (!spaceId || !clientToken) {
           throw new Error("Missing VITE_SPACE_ID or VITE_CLIENT_TOKEN. Add them to .env.local.");
