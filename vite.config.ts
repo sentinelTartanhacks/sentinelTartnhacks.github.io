@@ -9,10 +9,11 @@ function getBasePath() {
     return '/'
   }
 
-  const [, repoName = ''] = repository.split('/')
+  const [owner = '', repoName = ''] = repository.split('/')
+  const userSiteRepo = `${owner}.github.io`.toLowerCase()
 
-  // User/org Pages repos are served at root: <account>.github.io
-  if (repoName.endsWith('.github.io')) {
+  // User/org Pages repos are served at root only for exact <owner>.github.io.
+  if (repoName.toLowerCase() === userSiteRepo) {
     return '/'
   }
 
